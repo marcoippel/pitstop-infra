@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    system: pitstop
+    app: invoiceservice
+  name: invoiceservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        system: pitstop
+        app: invoiceservice
+    spec:
+      containers:
+      - env:
+        - name: PITSTOP_ENVIRONMENT
+          value: Production
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-password
+              key: RABBITMQ_DEFAULT_PASS 
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mssql-password
+              key: SA_PASSWORD 
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
+        name: invoiceservice
+      restartPolicy: Always

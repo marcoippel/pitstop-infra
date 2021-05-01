@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    system: pitstop
+    app: sqlserver
+    version: v1
+  name: sqlserver
+spec:
+  type: ClusterIP
+  ports:
+  - name: "tds"
+    port: 1433
+    targetPort: 1433
+  selector:
+    system: pitstop
+    app: sqlserver
+    version: v1

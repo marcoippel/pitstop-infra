@@ -1,0 +1,35 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    system: pitstop
+    app: vehiclemanagementapi
+  name: vehiclemanagementapi
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        system: pitstop
+        app: vehiclemanagementapi
+    spec:
+      containers:
+      - env:
+        - name: ASPNETCORE_ENVIRONMENT
+          value: Production
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-password
+              key: RABBITMQ_DEFAULT_PASS 
+        - name: SA_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mssql-password
+              key: SA_PASSWORD 
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
+        name: vehiclemanagementapi
+        ports:
+        - containerPort: 5000
+      restartPolicy: Always

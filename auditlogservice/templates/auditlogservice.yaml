@@ -1,0 +1,29 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    system: pitstop
+    app: auditlogservice
+  name: auditlogservice
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        system: pitstop
+        app: auditlogservice
+    spec:
+      containers:
+      - env:
+        - name: PITSTOP_ENVIRONMENT
+          value: Production
+        - name: RABBITMQ_DEFAULT_PASS
+          valueFrom:
+            secretKeyRef:
+              name: rabbitmq-password
+              key: RABBITMQ_DEFAULT_PASS 
+        image: {{ .Values.image }}
+        imagePullPolicy: IfNotPresent
+        name: auditlogservice
+      restartPolicy: Always
+

@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    system: pitstop
+    app: logserver
+    version: v1
+  name: logserver
+spec:
+  type: NodePort
+  ports:
+  - name: "http-5341"
+    port: 5341
+    targetPort: 80
+    nodePort: 30003
+  selector:
+    system: pitstop
+    app: logserver
+    version: v1
