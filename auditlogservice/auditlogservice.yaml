@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -21,8 +21,8 @@ spec:
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
-        image: {{ .Values.image }}
+              key: RABBITMQ_DEFAULT_PASS
+        image: marcoippel/auditlogservice
         imagePullPolicy: IfNotPresent
         name: auditlogservice
       restartPolicy: Always
