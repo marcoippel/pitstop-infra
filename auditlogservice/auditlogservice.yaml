@@ -7,6 +7,9 @@ metadata:
   name: auditlogservice
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: auditlogservice
   template:
     metadata:
       labels:
@@ -25,5 +28,17 @@ spec:
         image: marcoippel/auditlogservice
         imagePullPolicy: IfNotPresent
         name: auditlogservice
+        securityContext:  
+          readOnlyRootFilesystem: true  
+          runAsNonRoot: true
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
       restartPolicy: Always
+        
+
 
