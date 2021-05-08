@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -8,6 +8,9 @@ metadata:
   name: timeservice
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: timeservice
   template:
     metadata:
       labels:
@@ -24,7 +27,17 @@ spec:
             secretKeyRef:
               name: rabbitmq-password
               key: RABBITMQ_DEFAULT_PASS 
-        image: {{ .Values.image }}
+        image: marcoippel/timeservice
         imagePullPolicy: IfNotPresent
         name: timeservice
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:  
+          readOnlyRootFilesystem: true  
+          runAsNonRoot: true
       restartPolicy: Always

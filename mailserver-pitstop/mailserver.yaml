@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -8,6 +8,9 @@ metadata:
   name: mailserver
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: mailserver
   template:
     metadata:
       labels:
@@ -22,4 +25,14 @@ spec:
         ports:
         - containerPort: 25
         - containerPort: 80
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:  
+          readOnlyRootFilesystem: true  
+          runAsNonRoot: true
       restartPolicy: Always

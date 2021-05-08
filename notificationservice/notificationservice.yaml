@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
@@ -8,6 +8,9 @@ metadata:
   name: notificationservice
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: notificationservice
   template:
     metadata:
       labels:
@@ -29,7 +32,17 @@ spec:
             secretKeyRef:
               name: mssql-password
               key: SA_PASSWORD 
-        image: {{ .Values.image }}
+        image: marcoippel/notificationservice
         imagePullPolicy: IfNotPresent
         name: notificationservice
+        resources:
+          requests:
+            memory: "512Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        securityContext:  
+          readOnlyRootFilesystem: true  
+          runAsNonRoot: true
       restartPolicy: Always
