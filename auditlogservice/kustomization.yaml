@@ -4,4 +4,3 @@ resources:
 - auditlogservice.yaml
 images:
 - name: marcoippel/auditlogservice
-  newTag: sha  
