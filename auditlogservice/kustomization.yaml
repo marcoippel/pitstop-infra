@@ -4,4 +4,4 @@ resources:
 - auditlogservice.yaml
 images:
 - name: marcoippel/auditlogservice
-  newTag: 1.0.0-a397bc1
+  newTag: 1.0.0-8869a41
