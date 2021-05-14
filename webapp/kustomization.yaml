@@ -3,3 +3,5 @@ kind: Kustomization
 images:
 - name: marcoippel/WebApp
   newTag: 1.0.0-3262c6e
+- name: marcoippel/webapp
+  newTag: 1.0.0-8ea09ed
