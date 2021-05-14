@@ -3,3 +3,6 @@ kind: Kustomization
 resources:
 - customermanagementapi.yaml
 - customermanagementapi-svc.yaml
+images:
+- name: marcoippel/CustomerManagementAPI
+  newTag: 1.0.0-043507b
