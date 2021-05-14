@@ -3,5 +3,3 @@ kind: Kustomization
 images:
 - name: marcoippel/invoiceservice
   newTag: 1.0.0-3f6f6e7
-- name: marcoippel/invoiceservice
-  newTag: 1.0.0-8ea09ed
