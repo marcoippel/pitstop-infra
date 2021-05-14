@@ -3,3 +3,5 @@ kind: Kustomization
 images:
 - name: marcoippel/NotificationService
   newTag: 1.0.0-b49224b
+- name: marcoippel/notificationservice
+  newTag: 1.0.0-8ea09ed
