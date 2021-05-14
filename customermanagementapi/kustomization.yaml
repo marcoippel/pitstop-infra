@@ -6,3 +6,5 @@ resources:
 images:
 - name: marcoippel/CustomerManagementAPI
   newTag: 1.0.0-043507b
+- name: marcoippel/customermanagementapi
+  newTag: 1.0.0-8ea09ed
