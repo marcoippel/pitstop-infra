@@ -4,5 +4,5 @@ resources:
 - customermanagementapi.yaml
 - customermanagementapi-svc.yaml
 images:
-- name: marcoippel/CustomerManagementAPI
+- name: marcoippel/customermanagementapi
   newTag: 1.0.0-043507b
