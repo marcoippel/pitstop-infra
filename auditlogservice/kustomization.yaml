@@ -3,5 +3,7 @@ kind: Kustomization
 resources:
 - auditlogservice.yaml
 images:
+- name: marcoippel/AuditlogService
+  newTag: 1.0.0-043507b
 - name: marcoippel/auditlogservice
   newTag: 1.0.4-b217300
