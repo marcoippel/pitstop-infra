@@ -30,7 +30,7 @@ spec:
         name: auditlogservice
         securityContext:
           readOnlyRootFilesystem: true
-          runAsNonRoot: true
+          #runAsNonRoot: true
         resources:
           requests:
             memory: "512Mi"
