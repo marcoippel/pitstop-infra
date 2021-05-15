@@ -28,8 +28,8 @@ spec:
         image: marcoippel/auditlogservice
         imagePullPolicy: IfNotPresent
         name: auditlogservice
-        securityContext:  
-          readOnlyRootFilesystem: true  
+        securityContext:
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
         resources:
           requests:
@@ -39,6 +39,6 @@ spec:
             memory: "512Mi"
             cpu: "500m"
       restartPolicy: Always
-        
+
 
 
