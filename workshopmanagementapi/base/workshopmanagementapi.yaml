@@ -3,36 +3,38 @@ kind: Deployment
 metadata:
   labels:
     system: pitstop
-    app: workshopmanagementeventhandler
-  name: workshopmanagementeventhandler
+    app: workshopmanagementapi
+  name: workshopmanagementapi
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: workshopmanagementeventhandler
+      app: workshopmanagementapi
   template:
     metadata:
       labels:
         system: pitstop
-        app: workshopmanagementeventhandler
+        app: workshopmanagementapi
     spec:
       containers:
       - env:
-        - name: PITSTOP_ENVIRONMENT
+        - name: ASPNETCORE_ENVIRONMENT
           value: Production
         - name: RABBITMQ_DEFAULT_PASS
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
+              key: RABBITMQ_DEFAULT_PASS
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mssql-password
-              key: SA_PASSWORD 
-        image: marcoippel/workshopmanagementeventhandler
+              key: SA_PASSWORD
+        image: marcoippel/workshopmanagementapi
         imagePullPolicy: IfNotPresent
-        name: workshopmanagementeventhandler
+        name: workshopmanagementapi
+        ports:
+        - containerPort: 5200
         resources:
           requests:
             memory: "512Mi"
@@ -40,7 +42,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        securityContext:  
-          readOnlyRootFilesystem: true  
+        securityContext:
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
       restartPolicy: Always

@@ -3,38 +3,36 @@ kind: Deployment
 metadata:
   labels:
     system: pitstop
-    app: workshopmanagementapi
-  name: workshopmanagementapi
+    app: invoiceservice
+  name: invoiceservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: workshopmanagementapi
+      app: invoiceservice
   template:
     metadata:
       labels:
         system: pitstop
-        app: workshopmanagementapi
+        app: invoiceservice
     spec:
       containers:
       - env:
-        - name: ASPNETCORE_ENVIRONMENT
+        - name: PITSTOP_ENVIRONMENT
           value: Production
         - name: RABBITMQ_DEFAULT_PASS
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
+              key: RABBITMQ_DEFAULT_PASS
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mssql-password
-              key: SA_PASSWORD 
-        image: marcoippel/workshopmanagementapi
+              key: SA_PASSWORD
+        image: marcoippel/invoiceservice
         imagePullPolicy: IfNotPresent
-        name: workshopmanagementapi
-        ports:
-        - containerPort: 5200
+        name: invoiceservice
         resources:
           requests:
             memory: "512Mi"
@@ -42,7 +40,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        securityContext:  
-          readOnlyRootFilesystem: true  
+        securityContext:
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
       restartPolicy: Always

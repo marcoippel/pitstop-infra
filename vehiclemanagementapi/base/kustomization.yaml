@@ -1,5 +1,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+resources:
+  - vehiclemanagementapi-svc.yaml
+  - vehiclemanagementapi.yaml
 images:
 - name: marcoippel/vehiclemanagementapi
   newTag: 1.0.0-8ea09ed

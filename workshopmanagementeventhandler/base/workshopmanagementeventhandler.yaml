@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   labels:
     system: pitstop
-    app: invoiceservice
-  name: invoiceservice
+    app: workshopmanagementeventhandler
+  name: workshopmanagementeventhandler
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: invoiceservice
+      app: workshopmanagementeventhandler
   template:
     metadata:
       labels:
         system: pitstop
-        app: invoiceservice
+        app: workshopmanagementeventhandler
     spec:
       containers:
       - env:
@@ -24,15 +24,15 @@ spec:
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
+              key: RABBITMQ_DEFAULT_PASS
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mssql-password
-              key: SA_PASSWORD 
-        image: marcoippel/invoiceservice
+              key: SA_PASSWORD
+        image: marcoippel/workshopmanagementeventhandler
         imagePullPolicy: IfNotPresent
-        name: invoiceservice
+        name: workshopmanagementeventhandler
         resources:
           requests:
             memory: "512Mi"
@@ -40,7 +40,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        securityContext:  
-          readOnlyRootFilesystem: true  
+        securityContext:
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
       restartPolicy: Always
