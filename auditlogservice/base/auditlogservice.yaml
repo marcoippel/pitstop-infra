@@ -28,8 +28,8 @@ spec:
         image: marcoippel/auditlogservice
         imagePullPolicy: IfNotPresent
         name: auditlogservice
-        securityContext:
-          readOnlyRootFilesystem: true
+        # securityContext:
+        #   readOnlyRootFilesystem: true
         resources:
           requests:
             memory: "2Gi"
