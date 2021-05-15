@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - rabbitmq-svc.yaml
   - rabbitmq.yaml
+  - ns.yaml

@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - sqlserver-svc.yaml
   - sqlserver.yaml
+  - ns.yaml

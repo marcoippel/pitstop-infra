@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - webapp-svc.yaml
   - webapp.yaml
+  - ns.yaml
 images:
 - name: marcoippel/webapp
   newTag: 1.0.0-8ea09ed

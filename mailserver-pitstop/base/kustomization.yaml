@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - mailserver-svc.yaml
   - mailserver.yaml
+  - ns.yaml

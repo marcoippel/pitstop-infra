@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - vehiclemanagementapi-svc.yaml
   - vehiclemanagementapi.yaml
+  - ns.yaml
 images:
 - name: marcoippel/vehiclemanagementapi
   newTag: 1.0.0-8ea09ed

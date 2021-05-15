@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - mssql-password.yaml
   - rabbitmq-password.yaml
+  - ns.yaml

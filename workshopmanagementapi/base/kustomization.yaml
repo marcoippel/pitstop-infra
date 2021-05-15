@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - workshopmanagementapi-svc.yaml
   - workshopmanagementapi.yaml
+  - ns.yaml
 images:
 - name: marcoippel/workshopmanagementapi
   newTag: 1.0.0-8ea09ed
