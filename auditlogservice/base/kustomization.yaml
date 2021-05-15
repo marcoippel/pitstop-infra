@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: pitstop
 resources:
 - auditlogservice.yaml
+- ns.yaml
 images:
 - name: marcoippel/auditlogservice
   newTag: 1.0.0-8ea09ed
