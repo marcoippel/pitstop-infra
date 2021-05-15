@@ -32,10 +32,10 @@ spec:
         #   readOnlyRootFilesystem: true
         resources:
           requests:
-            memory: "2Gi"
+            memory: "500m"
             cpu: "250m"
           limits:
-            memory: "3Gi"
+            memory: "750m"
             cpu: "500m"
       restartPolicy: Always
 
