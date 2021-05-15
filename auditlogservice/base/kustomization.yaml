@@ -6,4 +6,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/auditlogservice
-  newTag: 1.0.0-8ea09ed
+  newTag: 1.0.0-d375e4c
