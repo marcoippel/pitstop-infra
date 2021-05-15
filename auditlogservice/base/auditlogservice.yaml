@@ -30,13 +30,13 @@ spec:
         name: auditlogservice
         securityContext:
           readOnlyRootFilesystem: true
-        resources:
-          requests:
-            memory: "2Gi"
-            cpu: "250m"
-          limits:
-            memory: "3Gi"
-            cpu: "500m"
+        # resources:
+        #   requests:
+        #     memory: "2Gi"
+        #     cpu: "250m"
+        #   limits:
+        #     memory: "3Gi"
+        #     cpu: "500m"
       restartPolicy: Always
 
 
