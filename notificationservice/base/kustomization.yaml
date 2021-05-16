@@ -2,8 +2,8 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: pitstop
 resources:
-  - notificationservice.yaml
-  - ns.yaml
+- notificationservice.yaml
+- ns.yaml
 images:
 - name: marcoippel/notificationservice
-  newTag: 1.0.0-8ea09ed
+  newTag: 1.0.0-18f264b
