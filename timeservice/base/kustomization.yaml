@@ -6,4 +6,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/timeservice
-  newTag: 1.0.0-2b5e991
+  newTag: 1.0.0-4a5fd6c
