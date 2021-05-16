@@ -26,7 +26,7 @@ spec:
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
+              key: RABBITMQ_DEFAULT_PASS
         - name: RABBITMQ_DEFAULT_USER
           value: rabbitmquser
         image: rabbitmq:3-management
@@ -42,7 +42,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        securityContext:  
-          readOnlyRootFilesystem: true  
-          runAsNonRoot: true
+        # securityContext:
+        #   readOnlyRootFilesystem: true
+        #   runAsNonRoot: true
       restartPolicy: Always

@@ -24,12 +24,12 @@ spec:
           valueFrom:
             secretKeyRef:
               name: rabbitmq-password
-              key: RABBITMQ_DEFAULT_PASS 
+              key: RABBITMQ_DEFAULT_PASS
         - name: SA_PASSWORD
           valueFrom:
             secretKeyRef:
               name: mssql-password
-              key: SA_PASSWORD 
+              key: SA_PASSWORD
         image: marcoippel/customermanagementapi
         imagePullPolicy: IfNotPresent
         name: customermanagementapi
@@ -42,8 +42,7 @@ spec:
           limits:
             memory: "512Mi"
             cpu: "500m"
-        securityContext:  
-          readOnlyRootFilesystem: true  
-          runAsNonRoot: true
+        # securityContext:
+        #   readOnlyRootFilesystem: true
+        #   runAsNonRoot: true
       restartPolicy: Always
-  
