@@ -38,10 +38,10 @@ spec:
         - containerPort: 1433
         resources:
           requests:
-            memory: "512Mi"
+            memory: "2Gi"
             cpu: "250m"
           limits:
-            memory: "512Mi"
+            memory: "3Gi"
             cpu: "500m"
         # securityContext:
         #   readOnlyRootFilesystem: true
