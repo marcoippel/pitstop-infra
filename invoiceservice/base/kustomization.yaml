@@ -6,4 +6,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/invoiceservice
-  newTag: 1.0.0-c654386
+  newTag: 1.0.0-07abdce
