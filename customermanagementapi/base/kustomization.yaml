@@ -7,4 +7,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/customermanagementapi
-  newTag: 1.0.0-0a4ca4e
+  newTag: 1.0.0-d941aa5
