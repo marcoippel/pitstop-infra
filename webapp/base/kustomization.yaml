@@ -7,4 +7,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/webapp
-  newTag: 1.0.0-f9b9b74
+  newTag: 1.0.0-ebaabe3
