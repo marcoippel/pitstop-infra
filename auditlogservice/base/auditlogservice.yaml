@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - env:
-        - name: PITSTOP_ENVIRONMENT
+        - name: ASPNETCORE_ENVIRONMENT
           value: Production
         - name: RABBITMQ_DEFAULT_PASS
           valueFrom:
@@ -28,16 +28,11 @@ spec:
         image: marcoippel/auditlogservice
         imagePullPolicy: IfNotPresent
         name: auditlogservice
-        # securityContext:
-        #   readOnlyRootFilesystem: true
         resources:
           requests:
-            memory: "500m"
+            memory: "512Mi"
             cpu: "250m"
           limits:
-            memory: "750m"
+            memory: "512Mi"
             cpu: "500m"
       restartPolicy: Always
-
-
-
