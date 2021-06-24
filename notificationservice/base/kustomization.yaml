@@ -6,4 +6,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/notificationservice
-  newTag: 1.0.0-18f264b
+  newTag: 1.0.0-d941aa5
