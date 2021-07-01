@@ -7,4 +7,4 @@ resources:
 - ns.yaml
 images:
 - name: marcoippel/workshopmanagementapi
-  newTag: 1.0.0-dbfc680
+  newTag: 1.0.0-ebaabe3
